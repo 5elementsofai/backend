@@ -2,7 +2,9 @@ FROM ubuntu
 
 LABEL maintainer="Tobias Oberrauch"
 
-RUN apt-get update -y && \
+RUN apt-get install software-properties-common && \
+    apt-add-repository universe && \
+    apt-get update -y && \
     apt-get install -y python-pip python-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
