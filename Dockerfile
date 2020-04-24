@@ -2,7 +2,8 @@ FROM ubuntu
 
 LABEL maintainer="Tobias Oberrauch"
 
-RUN apt-get install software-properties-common && \
+RUN apt-get update -y && \
+    apt-get install software-properties-common && \
     apt-add-repository universe && \
     apt-get update -y && \
     apt-get install -y python-pip python-dev
