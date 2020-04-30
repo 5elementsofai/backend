@@ -7,7 +7,6 @@ def load_use_cases(use_cases_file_path: str):
         use_cases_data = json.load(file)
         
     use_cases = {
-        key: Model(value) for key, value in use_cases_data.items()
     }
 
     return use_cases
