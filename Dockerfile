@@ -1,22 +1,14 @@
-FROM ubuntu
-
-LABEL maintainer="Tobias Oberrauch"
-
-RUN apt-get update -y && \
-    apt-get install software-properties-common -y && \
-    apt-add-repository universe && \
-    apt-get update -y && \
-    apt-get install -y python-pip python-dev
-
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
+FROM python:3.7
 
 WORKDIR /app
+
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+
+COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+CMD ["flask", "run"]

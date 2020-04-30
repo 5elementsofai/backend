@@ -1,6 +1,7 @@
 # Backend
 
 ## Run
+- pip install -r requirements.txt
 - Run: python app.py
 
 ## Run with nodemon
