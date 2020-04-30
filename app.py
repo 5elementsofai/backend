@@ -32,7 +32,7 @@ def usecases() -> Response:
         'use_cases': use_cases
     })
 
-
+'''
 @app.route(API_V1 + '/use-cases/<use_case>/predict')
 def predict(use_case: str) -> Response:
     use_case = use_cases[use_case]
@@ -41,7 +41,7 @@ def predict(use_case: str) -> Response:
     
     prediction = use_case.predict_json(data)
     return jsonify(prediction)
-
+'''
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
